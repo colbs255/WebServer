@@ -30,9 +30,10 @@ def listening():
 
 
 def handle_client(connection, addr):
-        print('===================Request received=================')
+        print('===================New Client=================')
         while True:
                 data = connection.recv(2000)
+                print('=====Request Received=====')
                 print(data.decode())
                 connection.send(utils.create_message().encode())
         connection.close()
