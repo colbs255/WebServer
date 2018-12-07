@@ -2,8 +2,15 @@ import socket
 from threading import Thread, Lock
 import utils
 import http.client
+import sys
 
-SERVER_PORT = 8081
+if len(sys.argv) != 2:
+        print('Invalid arguments. Must enter the port number to run on.')
+try:
+        SERVER_PORT = int(sys.argv[1])
+except ValueError:
+        print("Port number must be an integer")
+        exit(1)
 # HOST = socket.gethostbyname(socket.gethostname())
 HOST = socket.gethostname()
 MAX_CONNECTIONS = 10
